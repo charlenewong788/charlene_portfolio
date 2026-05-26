@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charlene | Personal Homepage</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#intro" aria-label="Charlene home">C</a>
+      <div class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="intro">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal homepage</p>
+        <h1>Hi, I'm Charlene.</h1>
+        <p class="intro">
+          I am an MSc Light & Lighting student at UCL's Bartlett School of Environment, Energy & Resources, exploring how thoughtful lighting design can shape spaces, atmosphere, and experience.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#contact">Get in touch</a>
+          <a class="button secondary" href="https://github.com/charlenewong788" target="_blank" rel="noreferrer">View GitHub</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="avatar" aria-hidden="true">C</div>
+        <h2>MSc Light & Lighting</h2>
+        <p>UCL Bartlett School of Environment, Energy & Resources</p>
+      </aside>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's connect.</h2>
+        <p>
+          Feel free to reach out by email or follow along with my projects on GitHub.
+        </p>
+      </div>
+      <div class="contact-panel">
+        <a class="contact-link" href="https://github.com/charlenewong788" target="_blank" rel="noreferrer">
+          github.com/charlenewong788
+        </a>
+        <button class="copy-button" type="button" data-email="charlenewong788788@gmail.com">Copy email</button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Charlene. Built with HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
