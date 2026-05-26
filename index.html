@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charlene Wong | Personal Homepage</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#intro" aria-label="Charlene Wong home">CW</a>
+      <div class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="intro">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal homepage</p>
+        <h1>Hi, I'm Charlene Wong.</h1>
+        <p class="intro">
+          I am building my first Codex project: a simple, polished homepage with space to share who I am, what I am learning, and how to get in touch.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#contact">Get in touch</a>
+          <a class="button secondary" href="https://github.com/charlenewong788" target="_blank" rel="noreferrer">View GitHub</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="avatar" aria-hidden="true">CW</div>
+        <h2>Curious builder</h2>
+        <p>Exploring web design, code, and useful little projects one commit at a time.</p>
+      </aside>
+    </section>
+
+    <section class="contact" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let's connect.</h2>
+        <p>
+          The best place to follow along is GitHub. You can also use the email button below as a placeholder until a preferred contact address is added.
+        </p>
+      </div>
+      <div class="contact-panel">
+        <a class="contact-link" href="https://github.com/charlenewong788" target="_blank" rel="noreferrer">
+          github.com/charlenewong788
+        </a>
+        <button class="copy-button" type="button" data-email="hello@example.com">Copy email</button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Charlene Wong. Built with HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
