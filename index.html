@@ -2,19 +2,13 @@
 <html lang="en" data-scene="dusk">
 <!--
   ═══════════════════════════════════════════════════════════════════════
-  CHARLENE HUANG · PORTFOLIO — v.2
+  CHARLENE WONG · PORTFOLIO — v.3
   单文件作品集 · 纯 HTML/CSS/JS · 无框架 · 页面可见内容全英文
+  仓库：github.com/charlenewong788/charlene_portfolio（Pages 自动发布）
   ═══════════════════════════════════════════════════════════════════════
 
-  【还差两张图 —— 只需把文件放进 assets 文件夹，刷新即自动出现，无需改代码】
-    1. assets/portrait.jpg     —— 你的人像照（建议用咖啡馆那张，竖构图更合适）
-    2. assets/causal-loop.png  —— 教室日光因果回路图（The causal loop diagram）
-  已就位的图片：assets/continuum.png · assets/causal-loop.png(待) ·
-    assets/bisenet.png · assets/section.png · assets/lightshadow.jpg
-
-  【等你审核的两处草稿】（见对话里的说明，不满意随时改）
-    - Hero 主文案（当前实装了候选方案 A：姓名主视觉）
-    - Current research 的文字（据 ethics form 编写）+ FIG.01 研究流程图（SVG 手绘）
+  【还差一张图】assets/portrait.jpg —— 你的人像照，放进 assets 刷新即自动出现。
+  项目 PDF 在 pdf/ 文件夹（Selected work 的小字链接指向它们）。
 
   【如何新增作品】复制一段 <article class="row">…</article> 填入内容即可。
 
@@ -26,8 +20,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Charlene Huang — lighting researcher &amp; designer</title>
-<meta name="description" content="Charlene Huang (Huang Yijun) — lighting researcher and designer in London. MSc Light & Lighting at UCL. Mapping how daylight shapes sleep and wellbeing, from wearable sensors to lighting design.">
+<title>Charlene Wong — environmental researcher &amp; lighting designer</title>
+<meta name="description" content="Charlene Wong — environmental researcher and lighting designer in London. MSc Light & Lighting at UCL. Combining environmental sensing, data analysis and lighting design to explore how light shapes sleep, wellbeing and everyday experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -236,43 +230,20 @@ h1 em{font-style:normal; color:var(--accent);
 .frame .hint{font-family:var(--font-mono); font-size:.62rem; letter-spacing:.06em; color:var(--faint); text-align:center; padding:0 1rem}
 .frame--tall{aspect-ratio:3/4}
 .frame .fill{position:absolute; inset:0; z-index:2; width:100%; height:100%; object-fit:cover}
-.frame.lightbox .fill{object-fit:contain; background:var(--paper); padding:.55rem;
+.frame.lightbox .fill{object-fit:contain; background:var(--paper); padding:1rem;
   transition:background-color var(--d-scene) var(--ease-lux)}
+/* 装有真实图片的框：去掉角标与内发光，改圆角，干净收边 */
+.frame:has(.fill){border-radius:10px; background:var(--bg2)}
+.frame:has(.fill)::before,.frame:has(.fill)::after{display:none}
+.frame.lightbox:has(.fill){border-color:transparent}
 
 /* ══════════ PROFILE ══════════ */
 .grid-profile{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:3rem; align-items:start}
-.strip{display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-top:2.2rem}
-.strip > div{
-  border:1px solid var(--line); padding:.9rem 1rem; position:relative;
-  transition:border-color var(--d-med) var(--ease-soft), box-shadow var(--d-med) var(--ease-soft),
-    background-color var(--d-scene) var(--ease-lux);
-}
-.strip > div:hover{border-color:var(--line2); box-shadow:0 0 18px var(--glow2)}
-.strip .k{display:flex; align-items:center; gap:.5rem; font-family:var(--font-mono); font-size:.64rem;
-  letter-spacing:.24em; color:var(--accent); text-transform:uppercase; margin-bottom:.35rem}
-.strip .k::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--accent);
-  box-shadow:0 0 8px var(--glow); animation:pulse 3.2s ease-in-out infinite}
-.strip > div:nth-child(2) .k::before{animation-delay:.8s}
-.strip > div:nth-child(3) .k::before{animation-delay:1.6s}
-.strip > div:nth-child(4) .k::before{animation-delay:2.4s}
-@keyframes pulse{0%,100%{opacity:1} 50%{opacity:.3}}
-.strip .v{font-size:.9rem; color:var(--dim); line-height:1.5}
-.strip .v b{color:var(--text); font-weight:500}
 
 /* ══════════ RESEARCH ══════════ */
 .research{border:1px solid var(--line); background:var(--bg2); padding:clamp(1.4rem,3.5vw,2.6rem);
   transition:background-color var(--d-scene) var(--ease-lux), border-color var(--d-scene) var(--ease-lux)}
 .research h3{font-family:var(--font-display); font-weight:700; font-size:clamp(1.25rem,2.6vw,1.7rem); line-height:1.25; max-width:36rem}
-.research .spec{margin:1.1rem 0 1.4rem}
-.chain{display:flex; flex-wrap:wrap; gap:.55rem; margin:1.4rem 0 0}
-.chip{
-  font-family:var(--font-mono); font-size:.7rem; letter-spacing:.08em; color:var(--dim);
-  border:1px solid var(--line2); padding:.38rem .7rem; border-radius:999px;
-  transition:border-color var(--d-scene) var(--ease-lux), color var(--d-scene) var(--ease-lux),
-    box-shadow var(--d-med) var(--ease-soft);
-}
-.chip:hover{color:var(--accent); border-color:var(--accent); box-shadow:0 0 14px var(--glow2)}
-.chip .arr{color:var(--faint); margin-left:.5rem}
 .grid-research{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:2.4rem; align-items:start; margin-top:1.8rem}
 .sup{font-family:var(--font-mono); font-size:.64rem; letter-spacing:.14em; color:var(--faint); margin-top:1.6rem}
 .fig{border:1px solid var(--line); background:var(--bg); padding:1.1rem;
@@ -377,8 +348,6 @@ h1 em{font-style:normal; color:var(--accent);
 .btn:active{transform:translateY(0)}
 .btn.ghost{background:transparent; color:var(--accent)}
 .btn.ghost:hover{box-shadow:0 0 22px var(--glow2)}
-.avail{font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; color:var(--dim); line-height:2}
-.avail b{color:var(--accent); font-weight:400}
 .cell{display:flex; flex-wrap:wrap; gap:.4rem 1.6rem; margin-top:1.6rem;
   font-family:var(--font-mono); font-size:.74rem; letter-spacing:.08em; color:var(--faint)}
 
@@ -429,12 +398,12 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
 <div id="lum" aria-hidden="true"></div>
 
 <header class="bar">
-  <a class="mark" href="#top" aria-label="Charlene Huang — back to top">
+  <a class="mark" href="#top" aria-label="Charlene Wong — back to top">
     <svg viewBox="0 0 64 40" aria-hidden="true">
       <path pathLength="100" d="M26 9 A 13 13 0 1 0 26 31"/>
-      <path pathLength="100" d="M36 7 V 33 M56 7 V 33 M36 20 H 56"/>
+      <path pathLength="100" d="M34 7 L 40 33 L 46 14 L 52 33 L 58 7"/>
     </svg>
-    <span class="nm">CHARLENE&nbsp;HUANG</span>
+    <span class="nm">CHARLENE&nbsp;WONG</span>
   </a>
   <nav class="links" aria-label="Sections">
     <a href="#profile">Profile</a>
@@ -459,16 +428,16 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
   <section class="hero" aria-label="Introduction">
     <canvas id="motes" aria-hidden="true"></canvas>
     <div class="hero-in">
-      <p class="eyebrow lit" style="animation-delay:.9s">Lighting researcher &amp; designer · UCL IEDE · London</p>
-      <h1 aria-label="Charlene Huang">
+      <p class="eyebrow lit" style="animation-delay:.9s">Environmental researcher &amp; lighting designer · UCL IEDE · London</p>
+      <h1 aria-label="Charlene Wong">
         <span class="mask"><span class="w" style="--w:0">Charlene</span></span><br>
-        <span class="mask"><span class="w breathe" style="--w:1"><em>Huang</em></span></span>
+        <span class="mask"><span class="w breathe" style="--w:1"><em>Wong</em></span></span>
       </h1>
-      <p class="lede">I wear the sensors, run the numbers and design with daylight.
-        My research maps how <strong>the light you live under</strong> shapes
-        <strong>the way you sleep</strong>.</p>
+      <p class="lede">I combine environmental sensing, data analysis and lighting design
+        to explore how light shapes <strong>sleep</strong>, <strong>wellbeing</strong> and
+        everyday experience.</p>
       <p class="spec">
-        <b>51.5°N&nbsp;0.13°W</b><span>MSc LIGHT &amp; LIGHTING · UCL</span><span>AVAILABLE FROM OCT 2026</span>
+        <b>BASED IN LONDON</b><span>MSc LIGHT AND LIGHTING, UCL</span>
       </p>
     </div>
     <p class="cue" aria-hidden="true">DIM&nbsp;DOWN</p>
@@ -479,25 +448,20 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
     <p class="eyebrow" data-lit>Profile</p>
     <div class="grid-profile">
       <div>
-        <h2 class="reveal">From circuits to circadian light.</h2>
-        <p class="p reveal">Four years of electrical and electronic engineering taught me to measure
-          things properly. Somewhere between an electronics lab and a daylight simulation I realised
-          the thing I most wanted to measure was <b>light itself</b>, and what it quietly does to the
-          people underneath it.</p>
-        <p class="p reveal">As an undergraduate I led the study that became my first IEEE paper,
-          teaching a network to read dental scans. Then the questions moved into buildings: how
-          classrooms should provide daylight without glare, and how smart windows could manage both.
-          That work grew into a Wiley journal paper and a conference Best Abstract Award. Now at
-          UCL&rsquo;s Institute for Environmental Design and Engineering, I study how personal daylight
-          exposure shapes sleep, <span class="soft">wearing the same sensors I deploy on my participants.</span></p>
-        <p class="p reveal">Off duty, you will usually find me on a fencing piste.
-          <span class="soft">En garde.</span></p>
-        <div class="strip reveal">
-          <div><span class="k">Now</span><span class="v"><b>MSc Light &amp; Lighting</b>, UCL IEDE · dissertation fieldwork 2026</span></div>
-          <div><span class="k">Background</span><span class="v"><b>BEng Electrical &amp; Electronic Engineering</b> · Minjiang University × European University Cyprus</span></div>
-          <div><span class="k">Languages</span><span class="v"><b>English</b> &amp; <b>Mandarin</b></span></div>
-          <div><span class="k">Off duty</span><span class="v"><b>Fencing</b> · footwork, patience, timing</span></div>
-        </div>
+        <h2 class="reveal">Researching environments.<br>Designing with light.</h2>
+        <p class="p reveal">My work sits at the intersection of environmental research and lighting
+          design. With a background in electrical and electronic engineering, I use environmental
+          sensing, simulation and data analysis to understand how light performs in
+          buildings&mdash;and how it influences <b>comfort, sleep and wellbeing</b>.</p>
+        <p class="p reveal">My earlier research explored daylight, glare and smart-window strategies
+          in learning environments, leading to a peer-reviewed journal paper and a Best Abstract
+          Award. At UCL&rsquo;s Institute for Environmental Design and Engineering, I now investigate
+          the relationship between personal daylight exposure and sleep through wearable sensing and
+          field research.</p>
+        <p class="p reveal">I translate research evidence into thoughtful, measurable and
+          human-centred lighting strategies.</p>
+        <p class="p reveal">Outside research and design, you&rsquo;ll usually find me on a fencing
+          piste. <span class="soft">En garde.</span></p>
       </div>
       <!-- 【图片待补】把咖啡馆那张照片存为 assets/portrait.jpg，刷新页面即自动出现 -->
       <div class="frame frame--tall reveal" data-slot="assets/portrait.jpg" data-alt="Portrait of Charlene Huang" role="img" aria-label="Portrait placeholder">
@@ -513,25 +477,21 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
     <p class="eyebrow" data-lit>Current research</p>
     <div class="research reveal">
       <h3>Mapping personal daylight exposure and sleep quality using wearable sensors</h3>
-      <p class="spec"><span>MSc DISSERTATION · UCL IEDE</span><b>FIELDWORK JUN–SEP 2026</b><span>ETHICS APPROVED</span></p>
       <div class="grid-research">
         <div>
-          <p class="p">Does the light you actually receive predict how you sleep? Through the summer
-            of 2026 I am following office-based participants at UCL East through a week of ordinary
-            London days each, building a set of around eighteen datasets. A wearable LYS sensor logs
-            melanopic and photopic light exposure, an Empatica wristband records physiology, a Garmin
-            watch tracks activity, an Atmo Pro monitor watches the room, and sleep diaries with PSQI
-            questionnaires capture the nights.</p>
-          <p class="p">Morning light between 08:00 and 12:00 and the last three hours before bed form
-            the analysis windows; mixed-effects models connect exposure to sleep. The goal is practical:
-            evidence for urban residential daylight design and healthier daily lighting routines.</p>
-          <div class="chain" aria-label="Instrument chain">
-            <span class="chip">LYS · light<span class="arr">→</span></span>
-            <span class="chip">Garmin · activity<span class="arr">→</span></span>
-            <span class="chip">Empatica E4 · physiology<span class="arr">→</span></span>
-            <span class="chip">Atmo Pro · environment<span class="arr">→</span></span>
-            <span class="chip">PSQI · sleep</span>
-          </div>
+          <p class="p">How does personal light exposure change as people move through everyday
+            environments? In summer 2026, I conducted a field study with approximately 18
+            office-based participants at UCL East.</p>
+          <p class="p">The study combines wearable light sensing with activity, physiological and
+            indoor environmental data to map variations across time, place and daily routine.
+            Participants wear a LYS light sensor, an Empatica E4 wristband and a Garmin activity
+            tracker, while an Atmo Pro records indoor environmental conditions.</p>
+          <p class="p">Together, these measurements build a real-world picture of the light people
+            receive and the contexts in which exposure occurs. The analysis examines how time of day,
+            activity and environmental conditions contribute to differences in personal light
+            exposure.</p>
+          <p class="p">The aim is to translate field evidence into practical daylight and
+            electric-lighting strategies for more responsive, human-centred homes and workplaces.</p>
           <p class="sup">SUPERVISED BY DR AHMET BAHADDIN ERSOZ &amp; DR MANDANA SAREY KHANIE · UCL IEDE</p>
         </div>
         <div class="fig">
@@ -600,14 +560,15 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
         <span class="idx">W-01</span>
         <div>
           <h3>CONTINUUM · modular exposure monitoring</h3>
-          <p class="meta">2026 · UCL IEDE × INSTITUTE OF OPHTHALMOLOGY · <b>PROJECT RESEARCHER</b></p>
-          <p>An interdisciplinary UCL project building a modular wearable system that captures
-            continuous personal exposure to light from near-ultraviolet to near-infrared, together
-            with noise, air quality, temperature and physiological signals, to understand how everyday
-            environments shape sleep and mental wellbeing. I support the pilot deployment and the data
-            work: a Python pipeline that audits, harmonises and time-aligns over a thousand raw sensor
-            files into research-ready, FAIR-compliant datasets.</p>
-          <p class="out">With the Surrey Sleep Research Centre &amp; LYS Technologies</p>
+          <p class="meta">2026 · UCL IEDE · <b>PROJECT RESEARCHER</b></p>
+          <p>An interdisciplinary UCL project developing a modular wearable system to monitor
+            personal exposure to light, alongside noise, air quality, temperature and physiological
+            signals across everyday environments.</p>
+          <p style="margin-top:.7rem">As part of the research team, I support the pilot across the
+            study lifecycle&mdash;from equipment preparation and sensor checks to deployment and
+            field data collection. I also participate in discussions around data quality,
+            multi-sensor integration and analysis planning, gaining practical insight into the
+            Python-based workflows used to organise, harmonise and time-align recordings.</p>
         </div>
         <figure class="frame lightbox">
           <img class="fill" src="assets/continuum.png" alt="The CONTINUUM modular monitoring kit: chest mount vest, noise dosimeter, Empatica wristband, LYS spectral sensor and portable air quality monitor">
@@ -624,13 +585,11 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
             proposal for classroom window systems. Published in Wiley&rsquo;s <i>International Journal
             of Mental Health Nursing</i>; the conference abstract won the Best Abstract Award at
             ICDAMI 2024.</p>
-          <p class="out"><a href="#publications">See publications P-01 / T-01</a></p>
+          <p class="out"><a href="#publications">See publications P-01 / C-01</a></p>
         </div>
-        <!-- 【图片待补】把因果回路图存为 assets/causal-loop.png，刷新即自动出现 -->
-        <div class="frame lightbox" data-slot="assets/causal-loop.png" data-alt="Causal loop diagram of daylight and dependent variables in classrooms, based on the literature review" role="img" aria-label="Causal loop diagram placeholder">
-          <span class="tag">FIGURE</span>
-          <span class="hint">drop the causal loop diagram at<br>assets/causal-loop.png and refresh</span>
-        </div>
+        <figure class="frame lightbox">
+          <img class="fill" src="assets/causal-loop.png" alt="Causal loop diagram of daylight and dependent variables in classrooms, based on the literature review">
+        </figure>
       </article>
 
       <article class="row reveal">
@@ -651,13 +610,30 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
       <article class="row reveal">
         <span class="idx">W-04</span>
         <div>
+          <h3>Apollaxis · Reclaiming the Light</h3>
+          <p class="meta">2026 · COMPETITION ENTRY · <b>LIGHT OF TOMORROW</b></p>
+          <p>A proposal reimagining the Grade II listed gasholder at Bromley-by-Bow as a public place
+            shaped by sunlight. A kinetic facade shifts between closed, half-open and open states
+            through a low-energy counterweight system, letting daylight organise atmosphere,
+            wayfinding and the rhythm of the day; rooftop solar panels store bright days for
+            London&rsquo;s grey ones.</p>
+          <p class="out"><a href="pdf/apollaxis-light-of-tomorrow.pdf" rel="noopener">Competition board · PDF</a></p>
+        </div>
+        <figure class="frame">
+          <img class="fill" src="assets/apollaxis.jpg" alt="Render of the reimagined Bromley-by-Bow gasholders with a golden kinetic facade and a public plaza">
+        </figure>
+      </article>
+
+      <article class="row reveal">
+        <span class="idx">W-05</span>
+        <div>
           <h3>Dancing with Daylight · a house by the sea</h3>
           <p class="meta">DESIGN PORTFOLIO · 20 BOARDS · <b>SOLE DESIGNER</b></p>
           <p>A daylight-driven private house stepped down a coastal slope, with daylight as the primary
             organiser of space, circulation and mood. The portfolio carries the project from solar site
             analysis and massing studies through plans, sections and a 35-view daylight simulation
             matrix to interior light studies and physical models.</p>
-          <p class="out">Full portfolio available on request</p>
+          <p class="out"><a href="pdf/dancing-with-daylight.pdf" rel="noopener">Full portfolio · PDF</a></p>
         </div>
         <figure class="frame lightbox">
           <img class="fill" src="assets/section.png" alt="Rendered section of the coastal house: white stepped volumes beside the sea, levels from minus 3.000 to plus 21.500 metres">
@@ -665,7 +641,7 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
       </article>
 
       <article class="row reveal">
-        <span class="idx">W-05</span>
+        <span class="idx">W-06</span>
         <div>
           <h3>Light | Shadow · lighting design for Mysteria</h3>
           <p class="meta">2026 · UCL BENV0190 · RIBA STAGE 3 · <b>LIGHTING DESIGNER</b></p>
@@ -673,7 +649,7 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
             facades, the landscape and a multi-purpose hall, treating shadow as a design material.
             Grasshopper daylight analysis to BS EN 17037, SLL Code for Lighting 2022 criteria, DIALux
             verification and DALI-2 daylight-linked scene control, within a EUR 100,000 budget.</p>
-          <p class="out">17 A3 boards · full report available on request</p>
+          <p class="out"><a href="pdf/light-shadow-mysteria.pdf" rel="noopener">Full report · 17 A3 boards · PDF</a></p>
         </div>
         <figure class="frame">
           <img class="fill" src="assets/lightshadow.jpg" alt="Cover board of Light and Shadow: night render of a stepping stone path lit by in-ground luminaires">
@@ -715,7 +691,7 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
         <span class="yr">2023</span>
       </div>
       <div class="pub reveal">
-        <span class="idx">T-01</span>
+        <span class="idx">C-01</span>
         <div>
           <span class="pub-t">The understanding of the smart classrooms&rsquo; needs on daylight and its
             controllability in Asian higher-education institutes<span class="badge">BEST ABSTRACT</span></span>
@@ -723,16 +699,8 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
         </div>
         <span class="yr">2024</span>
       </div>
-      <div class="pub reveal">
-        <span class="idx">T-02</span>
-        <div>
-          <span class="pub-t">Exploring tooth segmentation techniques based on the BiSeNet model — conference presentation</span>
-          <span class="src"><b>Huang Y.</b> et al. · ISHC 2023</span>
-        </div>
-        <span class="yr">2023</span>
-      </div>
     </div>
-    <p class="note">P = paper · T = talk — full citations available on request.</p>
+    <p class="note">PUBLISHED AS HUANG Y. — YIJUN HUANG IS MY CHINESE NAME.</p>
   </section>
 
   <!-- ══════════ RECOGNITION ══════════ -->
@@ -767,15 +735,15 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
       </div>
       <div class="rail-row">
         <span class="cat">Simulate</span>
-        <span class="toks"><span class="tok"><b>Daylight studies</b> · sDA / UDI / DGP</span><span class="tok">DIALux</span><span class="tok">Lumion</span><span class="tok">EnergyPlus</span><span class="tok">BS EN 17037 · SLL Code workflows</span></span>
+        <span class="toks"><span class="tok"><b>Daylight studies</b> · sDA / UDI / DGP</span><span class="tok">DIALux</span><span class="tok">Lumion</span><span class="tok">EnergyPlus</span></span>
       </div>
       <div class="rail-row">
         <span class="cat">Measure</span>
-        <span class="toks"><span class="tok"><b>LYS</b> spectral logger</span><span class="tok">Empatica E4</span><span class="tok">Garmin</span><span class="tok">Atmo Pro</span><span class="tok">PSQI / PANAS / PSS-4</span></span>
+        <span class="toks"><span class="tok"><b>LYS</b> spectral logger</span><span class="tok">Empatica E4</span><span class="tok">Garmin</span><span class="tok">Atmo Pro</span></span>
       </div>
       <div class="rail-row">
         <span class="cat">Analyse</span>
-        <span class="toks"><span class="tok"><b>Python</b> · pandas / matplotlib</span><span class="tok">mixed-effects modelling</span><span class="tok">data visualisation</span><span class="tok">academic writing · English &amp; Mandarin</span></span>
+        <span class="toks"><span class="tok"><b>Python</b></span><span class="tok">data visualisation</span></span>
       </div>
     </div>
   </section>
@@ -784,15 +752,10 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
   <section id="contact" class="section contact">
     <p class="eyebrow" data-lit>Contact</p>
     <h2 class="reveal">The light&rsquo;s on — <em>say hello</em>.</h2>
-    <p class="p reveal">Open to lighting design and research roles in the UK.</p>
     <div class="cta reveal">
       <button class="btn" id="copyMail" type="button" data-mail="charlene.y.wong@outlook.com">COPY EMAIL</button>
       <a class="btn ghost" href="mailto:charlene.y.wong@outlook.com">WRITE INSTEAD</a>
     </div>
-    <p class="avail reveal">
-      AVAILABLE <b>FROM OCTOBER 2026</b> · LONDON / HYBRID<br>
-      LOCAL TIME <b id="lontime">–</b> · <span id="sunword">–</span>
-    </p>
     <p class="cell reveal">
       <a href="https://github.com/charlenewong788" rel="noopener">GITHUB ↗</a>
       <a href="https://www.linkedin.com/in/charlene-wong-a95069388" rel="noopener">LINKEDIN ↗</a>
@@ -806,7 +769,7 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
   <div class="colo">
     <span>HAND-BUILT — ONE HTML FILE · VANILLA CSS &amp; JS · NO FRAMEWORKS</span>
     <span>SET IN SYNE · INSTRUMENT SANS · IBM PLEX MONO</span>
-    <span>© 2026 CHARLENE HUANG · v.2</span>
+    <span>© 2026 CHARLENE WONG · v.3</span>
   </div>
 </footer>
 
@@ -1001,39 +964,6 @@ copyBtn.addEventListener("click", function(){
   }
 });
 
-/* ── 伦敦时间 + 日光状态（NOAA 近似，纯客户端）── */
-var LAT = 51.507, LON = -0.128, RAD = Math.PI/180;
-function solarState(date){
-  var jd = date.getTime()/86400000 + 2440587.5;
-  var n = jd - 2451545.0;
-  var L = ((280.460 + 0.9856474*n) % 360 + 360) % 360;
-  var g = (((357.528 + 0.9856003*n) % 360 + 360) % 360) * RAD;
-  var lam = (L + 1.915*Math.sin(g) + 0.020*Math.sin(2*g)) * RAD;
-  var eps = 23.439 * RAD;
-  var dec = Math.asin(Math.sin(eps)*Math.sin(lam));
-  var ra = Math.atan2(Math.cos(eps)*Math.sin(lam), Math.cos(lam));
-  var eqt = (L*RAD - ra);
-  eqt = Math.atan2(Math.sin(eqt), Math.cos(eqt));
-  return {dec:dec, eqtMin:eqt/RAD*4};
-}
-function elevationNow(){
-  var date = new Date(), s = solarState(date);
-  var utcH = date.getUTCHours() + date.getUTCMinutes()/60;
-  var ha = (utcH + LON/15 + s.eqtMin/60 - 12) * 15 * RAD;
-  return Math.asin(Math.sin(LAT*RAD)*Math.sin(s.dec) + Math.cos(LAT*RAD)*Math.cos(s.dec)*Math.cos(ha))/RAD;
-}
-function tickLondon(){
-  var t = document.getElementById("lontime");
-  if(t) t.textContent = new Intl.DateTimeFormat("en-GB",
-    {hour:"2-digit",minute:"2-digit",timeZone:"Europe/London"}).format(new Date());
-  var sw = document.getElementById("sunword");
-  if(sw){
-    var e = elevationNow();
-    sw.textContent = e > 6 ? "DAYLIGHT OVER LONDON" : (e > -6 ? "TWILIGHT OVER LONDON" : "LONDON AFTER DARK");
-  }
-}
-tickLondon();
-setInterval(tickLondon, 60000);
 })();
 </script>
 </body>
