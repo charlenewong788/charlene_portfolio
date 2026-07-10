@@ -22,6 +22,9 @@ assets/      project images
 pdf/         full project documents linked from Selected Work
 ```
 
+Project documents in `pdf/` are provided for review only. They are AES-256 protected
+read-only files — copying, editing and printing are disabled. © Charlene Wong, all rights reserved.
+
 No frameworks, no build step, no dependencies beyond Google Fonts.
 
 ## Running locally
