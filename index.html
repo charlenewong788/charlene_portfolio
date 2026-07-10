@@ -229,13 +229,11 @@ h1 em{font-style:normal; color:var(--accent);
 .frame .tag{font-family:var(--font-mono); font-size:.68rem; letter-spacing:.22em; color:var(--dim)}
 .frame .hint{font-family:var(--font-mono); font-size:.62rem; letter-spacing:.06em; color:var(--faint); text-align:center; padding:0 1rem}
 .frame--tall{aspect-ratio:3/4}
-.frame .fill{position:absolute; inset:0; z-index:2; width:100%; height:100%; object-fit:cover}
-.frame.lightbox .fill{object-fit:contain; background:var(--paper); padding:1rem;
-  transition:background-color var(--d-scene) var(--ease-lux)}
-/* 装有真实图片的框：去掉角标与内发光，改圆角，干净收边 */
-.frame:has(.fill){border-radius:10px; background:var(--bg2)}
+/* 装有真实图片的框：无边框、无衬底，按图片原始比例整幅展示，仅保留圆角 */
+.frame:has(.fill){aspect-ratio:auto; border:none; background:none; padding:0;
+  display:block; border-radius:12px; overflow:hidden}
 .frame:has(.fill)::before,.frame:has(.fill)::after{display:none}
-.frame.lightbox:has(.fill){border-color:transparent}
+.frame .fill{display:block; width:100%; height:auto; border-radius:12px}
 
 /* ══════════ PROFILE ══════════ */
 .grid-profile{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:3rem; align-items:start}
@@ -361,6 +359,12 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
   font-family:var(--font-mono); font-size:.64rem; letter-spacing:.14em; color:var(--faint);
 }
 .readout b{color:var(--accent); font-weight:400}
+
+/* 桌面端：图片下移，顶边与正文段落对齐（而非标题） */
+@media (min-width:901px){
+  .grid-profile > .frame{margin-top:13.1rem}
+  .row .frame{margin-top:6.9rem}
+}
 
 /* ══════════ RESPONSIVE ══════════ */
 @media (max-width:900px){
@@ -620,7 +624,7 @@ footer{border-top:1px solid var(--line); transition:border-color var(--d-scene) 
           <p class="out"><a href="pdf/apollaxis-light-of-tomorrow.pdf" rel="noopener">Competition board · PDF</a></p>
         </div>
         <figure class="frame">
-          <img class="fill" src="assets/apollaxis.jpg" alt="Render of the reimagined Bromley-by-Bow gasholders with a golden kinetic facade and a public plaza">
+          <img class="fill" src="assets/apollaxis.jpg" alt="Interior renders of the Apollaxis proposal: sunlight filtering through the kinetic timber facade into a circular public hall">
         </figure>
       </article>
 
