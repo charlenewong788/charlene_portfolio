@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://charlenewong788.github.io/charlene_portfolio/sitemap.xml
+Sitemap: https://charlene-wong.github.io/sitemap.xml

@@ -3,7 +3,7 @@
 Personal portfolio of **Charlene Wong**, environmental researcher & lighting designer in London.
 MSc Light & Lighting, UCL Institute for Environmental Design and Engineering.
 
-**Live site → [charlenewong788.github.io/charlene_portfolio](https://charlenewong788.github.io/charlene_portfolio/)**
+**Live site → [charlene-wong.github.io](https://charlene-wong.github.io/)**
 
 ## The idea
 
